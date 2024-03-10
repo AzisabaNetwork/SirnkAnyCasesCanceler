@@ -1,0 +1,9 @@
+name: SirnkAnyCasesCanceler
+version: '${project.version}'
+main: azisaba.sirnkanycasescanceler.SirnkAnyCasesCanceler
+api-version: '1.15'
+
+commands:
+  sacc:
+    permission: sacc.command.sacc
+    description: "Main command of SirnkAnyCasesCanceler"
