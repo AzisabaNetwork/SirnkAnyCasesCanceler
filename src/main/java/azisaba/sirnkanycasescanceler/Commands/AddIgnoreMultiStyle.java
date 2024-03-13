@@ -1,7 +1,6 @@
-package Commands;
+package azisaba.sirnkanycasescanceler.Commands;
 
 import azisaba.sirnkanycasescanceler.SirnkAnyCasesCanceler;
-import com.github.mori01231.lifecore.util.ItemUtil;
 import io.lumine.xikage.mythicmobs.MythicMobs;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;

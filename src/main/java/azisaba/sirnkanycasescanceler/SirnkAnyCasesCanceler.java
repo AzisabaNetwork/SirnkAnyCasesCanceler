@@ -1,9 +1,9 @@
 package azisaba.sirnkanycasescanceler;
 
-import Cancelers.CantPlaceHasLore;
-import Cancelers.CantUseHasSection;
-import Cancelers.IllegalAuctionCanceler;
-import Commands.RootCommand;
+import azisaba.sirnkanycasescanceler.Cancelers.CantPlaceHasLore;
+import azisaba.sirnkanycasescanceler.Cancelers.CantUseHasSection;
+import azisaba.sirnkanycasescanceler.Cancelers.IllegalAuctionCanceler;
+import azisaba.sirnkanycasescanceler.Commands.RootCommand;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.Objects;

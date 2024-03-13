@@ -1,4 +1,4 @@
-package Cancelers;
+package azisaba.sirnkanycasescanceler.Cancelers;
 
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;

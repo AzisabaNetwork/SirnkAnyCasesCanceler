@@ -1,4 +1,4 @@
-package Commands;
+package azisaba.sirnkanycasescanceler.Commands;
 
 import azisaba.sirnkanycasescanceler.SirnkAnyCasesCanceler;
 import com.github.mori01231.lifecore.util.ItemUtil;
@@ -11,14 +11,14 @@ import org.bukkit.inventory.ItemStack;
 import java.util.List;
 import java.util.Objects;
 
-public class RemoveIgnore extends SubCommand {
+public class AddIgnore extends SubCommand {
     @Override
     public String getName() {
-        return "removeIgnore";
+        return "addIgnore";
     }
 
     @Override
-    public void execute(Player player,String [] args) {
+    public void execute( Player player, String [] args) {
         if (args.length == 0) {
             ItemStack stack = player.getInventory().getItemInMainHand();
             String id = ItemUtil.getMythicType(stack);
@@ -27,35 +27,36 @@ public class RemoveIgnore extends SubCommand {
                 return;
             }
             FileConfiguration config = SirnkAnyCasesCanceler.getInstance().getConfig();
-            List<String> ignores = SirnkAnyCasesCanceler.getInstance().getConfig().getStringList("ignores");
-            if (!ignores.contains(id)){
-                player.sendMessage(ChatColor.RED + "未登録のmmidです。");
+            List<String> list = config.getStringList("ignores");
+            if (list.contains(id)) {
+                player.sendMessage(ChatColor.RED + "既に登録されています。");
                 return;
             }
-            List<String> list = config.getStringList("ignores");
-            list.remove(id);
+            list.add(id);
             config.set("ignores", list);
-
             SirnkAnyCasesCanceler.getInstance().save();
             ItemStack item = MythicMobs.inst().getItemManager().getItemStack(id);
             String name = Objects.requireNonNull(item.getItemMeta()).getDisplayName();
-            player.sendMessage(ChatColor.DARK_AQUA + name + ChatColor.DARK_AQUA + "をIgnoresListから削除しました。");
+            player.sendMessage(ChatColor.DARK_AQUA + name + ChatColor.DARK_AQUA + "をIgnoresListに追加しました。");
             return;
         }
         String s = args[0];
-        List<String> ignores = SirnkAnyCasesCanceler.getInstance().getConfig().getStringList("ignores");
-        if (!ignores.contains(s)){
-            player.sendMessage(ChatColor.RED + "未登録のmmidです。");
+        ItemStack mythicItem = MythicMobs.inst().getItemManager().getItemStack(s);
+        if (mythicItem == null) {
+            player.sendMessage(ChatColor.RED + "無効なmmidです。");
             return;
         }
         FileConfiguration config = SirnkAnyCasesCanceler.getInstance().getConfig();
         List<String> list = config.getStringList("ignores");
-        list.remove(s);
+        if (list.contains(s)) {
+            player.sendMessage(ChatColor.RED + "既に登録されています。");
+            return;
+        }
+        list.add(s);
         config.set("ignores", list);
-
         SirnkAnyCasesCanceler.getInstance().save();
         ItemStack item = MythicMobs.inst().getItemManager().getItemStack(s);
         String name = Objects.requireNonNull(item.getItemMeta()).getDisplayName();
-        player.sendMessage(ChatColor.DARK_AQUA + name + ChatColor.DARK_AQUA + "をIgnoresListから削除しました。");
+        player.sendMessage(ChatColor.DARK_AQUA + name + ChatColor.DARK_AQUA + "をIgnoresListに追加しました。");
     }
 }

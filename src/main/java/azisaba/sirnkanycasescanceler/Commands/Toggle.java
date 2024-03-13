@@ -1,4 +1,4 @@
-package Commands;
+package azisaba.sirnkanycasescanceler.Commands;
 
 import azisaba.sirnkanycasescanceler.SirnkAnyCasesCanceler;
 import org.bukkit.ChatColor;

@@ -1,4 +1,4 @@
-package Commands;
+package azisaba.sirnkanycasescanceler.Commands;
 
 import org.bukkit.entity.Player;
 

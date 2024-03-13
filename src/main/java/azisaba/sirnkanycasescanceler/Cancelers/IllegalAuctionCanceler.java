@@ -1,4 +1,4 @@
-package Cancelers;
+package azisaba.sirnkanycasescanceler.Cancelers;
 
 import azisaba.sirnkanycasescanceler.SirnkAnyCasesCanceler;
 import com.github.mori01231.lifecore.util.ItemUtil;
