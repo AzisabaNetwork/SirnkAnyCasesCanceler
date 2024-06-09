@@ -14,20 +14,17 @@ public class CantUseHasSection implements Listener {
     public void onInteractWithSectionedItemInMainHand(PlayerInteractEntityEvent e) {
         Player player = e.getPlayer();
         ItemStack item = player.getInventory().getItemInMainHand();
-        ItemMeta meta = item.getItemMeta();
-        if (meta == null) return;
-        String ms = meta.getDisplayName();
-
-        Material type = item.getType();
-        if (ms.contains("§") && type == Material.NAME_TAG) {
-            e.setCancelled(true);
-        }
+        aaaaaa(e, item);
     }
 
     @EventHandler
     public void onInteractWithSectionedItemInOffHand(PlayerInteractEntityEvent e) {
         Player player = e.getPlayer();
         ItemStack item = player.getInventory().getItemInOffHand();
+        aaaaaa(e, item);
+    }
+
+    private void aaaaaa(PlayerInteractEntityEvent e, ItemStack item) {
         ItemMeta meta = item.getItemMeta();
         if (meta == null) return;
         String ms = meta.getDisplayName();
